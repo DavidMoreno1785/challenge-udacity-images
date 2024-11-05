@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "jasmine": "jasmine",
+    "build": "npx tsc",
+    "test": "npm run build && npm run jasmine",
     "start": "nodemon src/app.ts"
   },
   "keywords": [],
@@ -16,9 +18,14 @@
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
+    "@types/jasmine": "^5.1.4",
     "@types/node": "^22.8.7",
+    "@types/supertest": "^6.0.2",
+    "jasmine": "^5.4.0",
+    "jasmine-spec-reporter": "^7.0.0",
     "nodemon": "^3.1.7",
-    "typescript": "^5.6.3",
-    "ts-node": "^10.9.2"
+    "supertest": "^7.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
   }
 }

@@ -10,6 +10,6 @@ export class ImageController{
     await new SharpService().resize(filename as string, Number(width), Number(heigth), format as string);    
 
     const image = path.resolve(`images/thumb/${filename}-${width}-${heigth}.${format}`);
-    res.status(200).sendFile(image);
+    res.status(201).sendFile(image);
   }
 }
