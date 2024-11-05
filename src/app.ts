@@ -1,15 +1,18 @@
 import { Request, Response } from "express";
 import imageRoutes from "./routes/imageRoute";
+import { validateParameters } from "./middlewares/validateParameters";
+import { validateImages } from "./middlewares/validateImages";
 const express = require('express');
 
 const app = express();
 
 const port: number = 3001;
 
-app.use("/api", imageRoutes);
+app.use("/api", validateParameters, validateImages, imageRoutes);
+
 
 app.get("/", (req: Request, res: Response) =>{
-  res.send("Change to /images");
+  res.send("Change to /api/images");
 });
 
 
