@@ -1,23 +1,21 @@
-import { Request, Response } from "express";
-import imageRoutes from "./routes/imageRoute";
-import { validateParameters } from "./middlewares/validateParameters";
-import { validateImages } from "./middlewares/validateImages";
-const express = require('express');
+import { Request, Response } from 'express'
+import imageRoutes from './routes/imageRoute'
+import { validateParameters } from './middlewares/validateParameters'
+import { validateImages } from './middlewares/validateImages'
+import express from 'express'
 
-const app = express();
+const app = express()
 
-const port: number = 3001;
+const port: number = 3001
 
-app.use("/api", validateParameters, validateImages, imageRoutes);
+app.use('/api', validateParameters, validateImages, imageRoutes)
 
-
-app.get("/", (req: Request, res: Response) =>{
-  res.send("Change to /api/images");
-});
-
-
-app.listen(port, () =>{
-  console.log("Server is running in port" , port);
+app.get('/', (req: Request, res: Response) => {
+  res.send('Change to /api/images')
 })
 
-export default app;
+app.listen(port, () => {
+  console.log('Server is running in port', port)
+})
+
+export default app
